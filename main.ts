@@ -1,6 +1,8 @@
-
 // PROVIDE :: some basic starter code, sprite declaration, controller assingment, and forever loop
 // BE EXPLICIT :: let is creating a variable name, this line means "make a variable called donut, and assign to it a sprite"
+//RUN OFTEN! shows that a donut now appears on the screen
+//nothing magic about the name! Change to `let chicken` and run again, still a donut 
+//STUDENT-PROMPT :: if my sprite will be a donut, why might I choose to name it donut instead of chicken?
 let donut = sprites.create(img`
     ..............bbbbbbb...........
     ...........bb66663333baa........
@@ -34,14 +36,25 @@ let donut = sprites.create(img`
     .......eeebbb444eee.............
     ..........eeeeee................
     ................................
-`, SpriteKind.Player);
+`, SpriteKind.Player)
 
-// RUN OFTEN! shows that a donut now appears on the screen
-// nothing magic about the name! Change to `let chicken` and run again, still a donut
-// STUDENT-PROMPT :: if my sprite will be a donut, why might I choose to name it donut instead of chicken?
- 
-//assign the controller to move the donut
+// assign the controller to move the donut
 // DELIBERATE-ERROR :: mispell as doughnut. computers are so stupid.
-controller.moveSprite(donut); 
-// MUST-ANSWER-Q :: What is donut in the previous line referring to? A: Refering to the donut variable! 
+controller.moveSprite(donut);
+// MUST-ANSWER-Q :: What is donut in the previous line referring to? A: Refering to the donut variable!
 
+// Show using drag and drog. You don't have to remember everything!
+controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
+    //code to do when the a button is pressed.
+    // BE EXPLICIT :: console.logValue prints messages to the console
+    // to get at an sprite's property, I use the dot operator.
+    console.logValue("x", donut.x); //get the x value, prints to console
+    console.logValue("y", donut.y);
+
+    //I can also set a sprites attribute using the dot operator
+    donut.x = 0;
+    //STUDENT-PROMPT :: why didn't it print the zero? A: order is important.
+
+    //preview pairing exercise.
+    //a sprite also has a velocity x and velocity y. change these numbers and see what happens when you run.
+})
